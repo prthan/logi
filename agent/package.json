@@ -1,0 +1,21 @@
+{
+  "name": "agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "bin": "app.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "moment": "^2.29.1",
+    "socket.io": "^3.0.4",
+    "tail": "^2.2.1"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "MIT",
+  "pkg": 
+  {
+    "targets": [ "latest-win-x64", "latest-linux-x64" ],
+    "outputPath": "../../dist/agent"
+  }  
+}

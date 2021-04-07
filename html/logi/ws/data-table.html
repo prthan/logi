@@ -1,0 +1,73 @@
+<div class="data-table-header fl-g0">
+  <div class="fl fl-aic app-header">
+    <!--div class="app-menu"><a class="app-action" title="Menu" ng-click="view.showAppMenu($event)"><i class="fas fa-bars"></i></a></div-->
+    <div class="fl-g0 app-logo">
+      <img ng-src="{{env.images}}/logo/logo-small.png">
+    </div>
+    <div class="fl-g1 toolbar fl">
+      <a class="toolbar-item" ng-click="view.onToolbarAction('open-file', $event)" ng-if="view.model.connectedToAgent!='Y'"><i class="fas fa-folder-open"></i><span class="text">Open File</span></a>
+      <a class="toolbar-item" ng-click="view.onToolbarAction('agent-connect', $event)" ng-if="view.model.connectedToAgent!='Y'"><i class="fas fa-network-wired"></i><span class="text">Connect To Agent</span></a>
+      <a class="toolbar-item" ng-click="view.onToolbarAction('agent-disconnect', $event)" ng-if="view.model.connectedToAgent=='Y'"><i class="fas fa-network-wired"></i><span class="text">Disconnect From Agent</span></a>
+      <a class="toolbar-item" ng-click="view.onToolbarAction('clear', $event)" ng-if="view.model.connectedToAgent!='Y'"><i class="fas fa-trash"></i><span class="text">Clear</span></a>
+    </div>
+    <div class="fl-g0 progress">
+
+    </div>
+    <div class="fl-g0 loader-container">
+      <div class="loader-moon"></div>
+    </div>
+    <div class="log-pager fl-g0 fl fl-aic">
+      <a href="#filter" class="fl-g0 page-item filter" title="Filter" ng-click="view.showFilterDialog($event)" ng-if="view.model.connectedToAgent!='Y'"><i class="fas fa-filter"></i></a>
+      <div class="fl-g0 fl fl-aic" ng-show="view.model.pager.list.length>0">
+        <a href="#prev-page" class="fl-g0 page-item page-prev" title="Previous Page" ng-click="view.showPage('previous', $event)" data-page="previous"><i class="fas fa-arrow-left"></i></a>
+        <a href="#page-{{item}}" ng-repeat="item in view.model.pager.list" title="Next Page" class="fl-g0 page-item {{item==view.model.pager.current ? 'selected': ''}}" ng-click="view.showPage(item, $event)" data-page="{{item}}">{{item}}</a>
+        <a href="#next-page" class="fl-g0 page-item page-next" ng-click="view.showPage('next', $event)" data-page="next"><i class="fas fa-arrow-right"></i></a>
+        <div class="fl-g0 total-pages">Page <input type="text" size="1" value="{{view.model.pager.current}}" zn-action="gotoPage"/> of {{view.model.pager.max}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="log-data-header fl">
+    <div class="fl-g0 col col-0">Date</div>
+    <div class="fl-g0 col col-1">Log Level</div>
+    <div class="fl-g0 col col-2">Source</div>
+    <div class="fl-g1 col col-3">Message</div>
+  </div>
+</div>
+<div class="data-table-body fl-g1 lean-scroll">
+  <div class="empty-list" ng-if="view.model.list.length==0">There are no log data to show</div>
+  <div class="log-item fl" ng-repeat="item in view.model.list" data-key="{{item.oid}}" data-cid="{{item.cid}}" data-log-level="{{item.level}}">
+    <div class="fl-g0 col col-0">
+      <div class="date-display started-on">
+        <div class="month">{{item.ts | date: 'MMM'}} '{{item.ts | date: 'yy'}}</div>
+        <div class="date">{{item.ts | date: 'dd'}}</div>
+        <div class="time">{{item.ts | date: 'hh:mm a'}}</div>
+      </div>
+    </div>
+    <div class="fl-g0 col col-1">
+      <div class="fl">
+        <div class="log-level fl-g0">
+          {{item.level}}
+        </div>
+      </div>
+    </div>
+    <div class="fl-g0 col col-2">
+      <div class="log-source">{{item.source}}</div>
+      <div class="log-type">{{item.type}}</div>
+    </div>
+    <div class="fl-g1 col col-3">
+      <div class="descr-wrapper">
+        <div class="format-actions"><a class="format-action" title="Format" ng-click="view.toggleDescrFormat($event)"><i class="fas fa-ellipsis-h"></i></a></div>
+        <div class="descr">{{item.message}}</div>
+      </div>
+      <div class="attrs fl fl-wrap">
+        <div class="key fl-g0" ng-repeat="attr in item.attrs">
+          <span class="key-name">{{attr.name}}</span><span class="eq">:</span><span class="key-value">{{attr.value}}</span><span class="sep">|</span>
+        </div>
+        <div class="key fl-g0 ecid" ng-if="item.ecid">
+          <span class="key-name">ECID</span><span class="eq">:</span><span class="key-value"><a href="#search-by-ecid" ng-click="view.filterByECID(item.ecid, $event)">{{item.ecid}}</a></span><span class="sep">|</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

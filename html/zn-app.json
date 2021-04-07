@@ -1,0 +1,64 @@
+{
+  "name": "logi",
+  "version": "0.1",
+  "title": "LOGi",
+
+  "scripts":
+  [
+    "external/socket.io.js",
+    "external/nedb.js",
+    "app/index.js"
+  ],
+
+  "styles":
+  [
+    "app/font-fa.css",
+    "app/index.css"
+  ],
+
+  "imports":
+  [
+    "../../../zn-ui/workspace/zn/external-lib.json",
+    "../../../zn-ui/workspace/zn/zn-lib.json",
+    "../../../zn-ui/workspace/zn-ui/zn-ui-lib.json"
+  ],
+
+  "modules": ["logi"],
+  
+  "resources": ["res"],
+
+  "bundled": "Y",
+  
+  "pwa": "Y",
+
+  "environments":
+  {
+    "dev":
+    {
+      "ctx": "/",
+      "api": "/api",
+      "res": "/res",
+      "images": "/res/images",
+      "sw": "/sw.js",
+      "agent-package": "https://github.com/prthan/logi/releases/download/v0.3-alpha/agent.zip"
+    },
+    "prod":
+    {
+      "ctx": "/logi",
+      "api": "/api",
+      "res": "/logi/res",
+      "images": "/logi/res/images",
+      "sw": "/logi/sw.js",
+      "agent-package": "https://github.com/prthan/logi/releases/download/v0.3-alpha/agent.zip"
+    },
+    "local":
+    {
+      "ctx": ".",
+      "api": "/api",
+      "res": "./res",
+      "images": "./res/images",
+      "sw": "./sw.js",
+      "agent-package": "https://github.com/prthan/logi/releases/download/v0.3-alpha/agent.zip"
+    }
+  }
+}

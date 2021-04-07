@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LOG Inspector</title>
+    <link rel="icon" type="image/png" href="/res/images/logo/icon.png" />
+    <link rel="stylesheet" type="text/css" href="../app.css"/>
+    <link rel="stylesheet" type="text/css" href="module/index.css"/>
+    <link rel="stylesheet" type="text/css" href="ws/view.css"/>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="manifest" href="../manifest.json"/>
+  </head>
+  <body>
+    <script src="../app.js"></script>
+    <script src="module/index.js"></script>
+    <script src="agent/client.js"></script>
+    <script src="io/readline.interface.js"></script>
+    <script src="io/wl-log.converter.js"></script>
+    <script src="io/wl-diag-log.converter.js"></script>
+    <script src="io/log.collection.js"></script>
+    <script src="ws/view.js"></script>
+
+    <template id="zn-env">{"ctx":"/","api":"/api","res":"/res","images":"/res/images","sw":"/sw.js","agent-package":"https://github.com/prthan/logi/releases/download/v0.3-alpha/agent.zip"}</template>
+    <template id="zn-defn">{"routes":{"/ws":{"view":"ws","default":true}},"views":{"ws":{"class":"logi.view.Workspace","template":"ws/view.html"}},"name":"logi","class":"logi.Module","title":"LOG Inspector","template":"module/layout.html","data":{"lovs":{}}}</template>
+
+    <div class="zn-module"></div>
+  </body>
+</html>

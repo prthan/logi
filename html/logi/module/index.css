@@ -1,0 +1,35 @@
+html, body, .zn-module, [zn-route][zn-view]
+{
+  width: 100%;
+  height: 100%;
+}
+
+
+.ws-layout
+{
+  position: relative;
+}
+
+.fl {display: flex;}
+.fl.fl-column {flex-direction: column;}
+.fl.fl-wrap {flex-wrap: wrap;}
+.fl.fl-ac {align-items: center;}
+.fl.fl-aic {align-items: center;}
+.fl.fl-at {align-items: flex-start;}
+.fl.fl-ab {align-items: flex-end;}
+.fl.fl-jc {justify-content: center;}
+.fl.fl-jcr {justify-content: flex-end;}
+.fl-g0 {flex-grow: 0}
+.fl-g1 {flex-grow: 1; flex-basis: 0;}
+
+.lean-scroll::-webkit-scrollbar {width: 5px; height: 5px}
+.lean-scroll::-webkit-scrollbar-track {background: #ddd;}
+.lean-scroll::-webkit-scrollbar-thumb {background: #bbb;}
+
+.label 
+{
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5f5f5f;
+}

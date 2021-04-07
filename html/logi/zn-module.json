@@ -1,0 +1,50 @@
+{
+  "name"         : "logi",
+  "version"      : "0.1",
+  "title"        : "LOG Inspector",
+  "template"     : "module/layout.html",
+  "class"        : "logi.Module",
+  "scripts"      : ["module/index.js", "agent/client.js", "io/readline.interface.js", "io/wl-log.converter.js", "io/wl-diag-log.converter.js", "io/log.collection.js"],
+  "style"        : "module/index.css",
+  
+  "manifest"     :
+  {
+
+  },
+
+  "includes":
+  {
+    "scripts"    : ["../app.js"],
+    "styles"     : ["../app.css"]
+  },
+  
+  "views": 
+  {
+    "ws":
+    {
+      "class"    : "logi.view.Workspace",
+      "template" : "ws/view.html",
+      "script"   : "ws/view.js",
+      "style"    : "ws/view.css"
+    }
+  },
+
+  "routes":
+  {
+    "/ws"     : {"view": "ws", "default": true}
+  },
+
+  "fragments":
+  [
+    "ws/toolbar.html",
+    "ws/data-table.html"
+  ],
+
+  "data":
+  {
+    "lovs":
+    {
+    }
+  }
+
+}

@@ -1,0 +1,62 @@
+<div class="data-table fl fl-column" zn-template="ws/data-table.html">
+</div>
+
+<a href="#download" class="download">Download</a>
+<input type="file" class="file-input"/>
+
+<div zn-popup name="app-menu" class="popup-menu-items app-menu" source=".app-action" showat="bottom">
+  <!--a class="popup-menu-item" ng-click="view.onAppMenuAction('open-file', $event)"><i class="fas fa-folder-open"></i><span class="popup-menu-item-text">Open File</span></a-->
+  <!--a class="popup-menu-item" ng-click="view.onAppMenuAction('switch-ws', $event)"><i class="fas fa-random"></i><span class="popup-menu-item-text">Switch Workspace</span></a-->
+  <!--a class="popup-menu-item" ng-click="view.onAppMenuAction('agent-capture', $event)"><i class="fas fa-network-wired"></i><span class="popup-menu-item-text">Connect To Agent</span></a-->
+  <!--div class="popup-menu-item-divider">&nbsp;</div-->
+  <a class="popup-menu-item" ng-click="view.onAppMenuAction('agent-download', $event)"><i class="fas fa-cloud-download-alt"></i><span class="popup-menu-item-text">Agent Download</span></a>
+  <a class="popup-menu-item" ng-click="view.onAppMenuAction('cli-download', $event)"><i class="fas fa-cloud-download-alt"></i><span class="popup-menu-item-text">CLI Download</span></a>
+</div>
+
+<div zn-dialog name="open-file-dialog" dialogtitle="Open File" actions="view.dialogActions.OKCANCEL" onaction="view.onOpenFileAction($event)">
+  <div class="fl fl-column">
+    <div class="file-name fl-g0">
+      <div class="field-label">Name</div>
+      <div class="field-value">{{view.model.logFile.name}}</div>
+    </div>
+    <div class="file-name fl-g0">
+      <div class="field-label">Size</div>
+      <div class="field-value">{{view.model.logFile.size}}</div>
+    </div>
+    <div zn-dropdownfield class="fl-g0" name="filetype" label="Type" value="view.model.logFile.type" items="view.FILETYPES" error="view.validations.fileType"></div>
+    <div zn-checkboxfield class="fl-g0" name="processed" text="The file is pre processed" value="view.model.logFile.processed" onvalue="Y" offvalue="N"></div>
+    <div zn-checkboxfield class="fl-g0" name="append" text="Append this file to the current view" value="view.model.logFile.append" onvalue="Y" offvalue="N"></div>
+  </div>
+</div>
+
+<div zn-dialog class="filter-dialog" name="filter-dialog" dialogtitle="Filter" actions="view.dialogActions.OKCANCELCLEAR" onaction="view.onFilterAction($event)">
+  <div class="fl">
+    <div class="fl-g1">
+      <div class="fl fl-column">
+        <div zn-dropdownfield class="fl-g0" name="level" label="Level" value="view.model.filter.level" items="view.levelLov"></div>
+        <div zn-dropdownfield class="fl-g0" name="source" label="Source" value="view.model.filter.source" items="view.sourceLov"></div>
+        <div zn-dropdownfield class="fl-g0" name="type" label="Type" value="view.model.filter.type" items="view.typeLov"></div>
+      </div>
+    </div>
+    <div class="sp-20">&nbsp;</div>
+    <div class="fl-g1">
+      <div class="fl fl-column">
+        <div class="field-label fl-g0">Log Date Between</div>
+        <div class="fl-g0 fl">
+          <div zn-datefield class="fl-g1" placeholder="Start Date" name="stdate" value="view.model.filter.stDate" format="MM/DD/YYYY"></div>
+          <div class="fl-g0 sp-10">&nbsp;</div>
+          <div zn-datefield class="fl-g1" placeholder="End Date" name="enddate" value="view.model.filter.endDate" format="MM/DD/YYYY"></div>    
+        </div>
+        <div zn-textfield class="fl-g0" name="ecid" label="ECID" value="view.model.filter.ecid"></div>
+        <div zn-textfield class="fl-g0" name="term" label="Term" value="view.model.filter.term"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div zn-dialog class="agent-dialog" name="agent-dialog" dialogtitle="Connect To Agent" actions="view.dialogActions.OKCANCEL" onaction="view.onAgentConnectAction($event)">
+  <div class="fl fl-column">
+    <div zn-textfield class="fl-g0" name="endpoint" label="Endpoint" value="view.model.agent.endpoint"></div>
+    <div zn-checkboxfield class="fl-g0" name="append" text="Append data from agent to the current view" value="view.model.agent.append" onvalue="Y" offvalue="N"></div>
+  </div>
+</div>

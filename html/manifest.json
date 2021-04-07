@@ -1,0 +1,17 @@
+{
+  "name": "LOGi",
+  "short_name": "LOGi",
+  "icons": 
+  [
+    {"type": "image/png", "sizes": "128x128", "src": "res/images/logo/pack/icon-128x128.png"}, 
+    {"type": "image/png", "sizes": "144x144", "src": "res/images/logo/pack/icon-144x144.png"}, 
+    {"type": "image/png", "sizes": "152x152", "src": "res/images/logo/pack/icon-152x152.png"}, 
+    {"type": "image/png", "sizes": "192x192", "src": "res/images/logo/pack/icon-192x192.png"}, 
+    {"type": "image/png", "sizes": "256x256", "src": "res/images/logo/pack/icon-256x256.png"}, 
+    {"type": "image/png", "sizes": "512x512", "src": "res/images/logo/pack/icon-512x512.png"}
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ececec",
+  "theme_color": "#455A64"
+}

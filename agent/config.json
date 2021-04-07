@@ -1,0 +1,45 @@
+{
+  "mode"           : "development",
+  "name"           : "LOGi Agent",
+  "id"             : "logi-agent",
+  "home"           : "e:/workspaces/logi/dist",
+
+  "logger"         :
+  {
+    "level"        : "DEBUG",
+    "colors"        : true
+  },
+  
+  "listener":
+  {
+    "address"    : "0.0.0.0",
+    "port"       : 8181
+  },
+
+  "context": "/logi/agent",
+  "origin": ["http://localhost:8080"],
+
+  "file-sources":
+  [
+    {
+      "name": "soacs-wl-log",
+      "file": "C:/root/workspaces/ihub/temp/agent/test-wl-log/logfile.txt",
+      "type": "wl-log"
+    },
+    {
+      "name": "soacs-wl-diag-log",
+      "file": "C:/root/workspaces/ihub/temp/agent/test-wl-diag-log/logfile.txt",
+      "type": "wl-diag-log"
+    }
+  ],
+
+  "connector1":
+  {
+    "ihub-api":
+    {
+      "url": "http://localhost/ihub",
+      "userid": "flagent",
+      "password": "passw0rd"
+    }
+  }
+}

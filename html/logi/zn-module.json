@@ -4,7 +4,7 @@
   "title"        : "LOG Inspector",
   "template"     : "module/layout.html",
   "class"        : "logi.Module",
-  "scripts"      : ["module/index.js", "agent/client.js", "io/readline.interface.js", "io/wl-log.converter.js", "io/wl-diag-log.converter.js", "io/log.collection.js"],
+  "scripts"      : ["module/index.js", "agent/client.js", "io/readline.interface.js", "io/wl-log.converter.js", "io/wl-diag-log.converter.js", "io/wl-access-log.converter.js", "io/log.collection.js"],
   "style"        : "module/index.css",
   
   "manifest"     :

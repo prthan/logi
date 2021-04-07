@@ -1,0 +1,21 @@
+{
+  "name": "logi-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "bin": "app.js",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "MIT",
+  "pkg": {
+    "targets": [
+      "latest-win-x64",
+      "latest-linux-x64"
+    ],
+    "outputPath": "../../dist/cli"
+  }
+}

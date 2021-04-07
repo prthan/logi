@@ -26,13 +26,15 @@
       this.FILETYPES=
       [
         {label: "Weblogic Log", value: "wl-log"},
-        {label: "Weblogic Diagnostic", value: "wl-diag-log"}
+        {label: "Weblogic Diagnostic", value: "wl-diag-log"},
+        {label: "Weblogic Access Log", value: "wl-access-log"}
       ]
       this.FILETYPESMap=this.FILETYPES.reduce((a,c)=>{a[c.value]=c.label; return a}, {});
       this.fileConvertes=
       {
         "wl-log": logi.io.WLLogConverter,
-        "wl-diag-log": logi.io.WLDiagnosticLogConverter
+        "wl-diag-log": logi.io.WLDiagnosticLogConverter,
+        "wl-access-log": logi.io.WLAccessLogConverter
       }
 
       this.model={};

@@ -2,7 +2,7 @@ const logger=require('../logger');
 const utils=require("../utils");
 const http=require('http');
 const io=require('socket.io')(http);
-const ihubapiconnector=require("../connectors/ihub-api");
+//const ihubapiconnector=require("../connectors/ihub-api");
 const HANDLERS=
 [
   require('./handlers/announce'),
@@ -80,7 +80,7 @@ agent.startConnectors=()=>
 
   let impl=async(res$, rej$)=>
   {
-    if(config.connectors["ihub-api"]) await ihubapiconnector.start(config.connectors["ihub-api"]);
+    //if(config.connectors["ihub-api"]) await ihubapiconnector.start(config.connectors["ihub-api"]);
     res$();
   }
   
@@ -94,7 +94,7 @@ agent.stopConnectors=()=>
 
   let impl=async(res$, rej$)=>
   {
-    if(config.connectors["ihub-api"]) await ihubapiconnector.stop();
+    //if(config.connectors["ihub-api"]) await ihubapiconnector.stop();
     res$();
   }
   
@@ -125,7 +125,7 @@ agent.unwatch=()=>
 agent.handleRecordFromTailer=(logRecord)=>
 {
   logger.debug(`log record received for source ${logRecord.source}`, logRecord);
-  ihubapiconnector.publish(logRecord);
+  //ihubapiconnector.publish(logRecord);
   Object.values(agent["@sockets"]).forEach((socket)=>socket.emit("/logi/log-record", {logRecord: logRecord}));
 }
 

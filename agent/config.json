@@ -2,7 +2,7 @@
   "mode"           : "development",
   "name"           : "LOGi Agent",
   "id"             : "logi-agent",
-  "home"           : "e:/workspaces/logi/dist",
+  "home"           : "c:/root/workspaces/logi/dist/agent",
 
   "logger"         :
   {
@@ -31,15 +31,5 @@
       "file": "C:/root/workspaces/ihub/temp/agent/test-wl-diag-log/logfile.txt",
       "type": "wl-diag-log"
     }
-  ],
-
-  "connector1":
-  {
-    "ihub-api":
-    {
-      "url": "http://localhost/ihub",
-      "userid": "flagent",
-      "password": "passw0rd"
-    }
-  }
+  ]
 }

@@ -33,21 +33,23 @@ Tailer.prototype.start=function()
     });
     tailer.tail.on("error", (err)=>
     {
-      logger.error(`error occured while monitoring the log file ${tailer.options.file}`, err);
+      logger.error(`error occured while monitoring the log file ${tailer.options.file}`, err.message);
+      tailer.tail=null;
     });
       
     logger.info(`monitoring ${tailer.options.file}`);
   }
   catch(err)
   {
-    logger.error(`error occured while monitoring the log file ${tailer.options.file}`, err);
+    logger.error(`error occured while monitoring the log file ${tailer.options.file}`, err.message);
+    tailer.tail=null;
   }
 }
 
 Tailer.prototype.stop=function()
 {
   let tailer=this;
-  tailer.tail.unwatch();
+  if(tailer.tail) tailer.tail.unwatch();
 }
 
 Tailer.prototype.handleLineFromFile=function(line)

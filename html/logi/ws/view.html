@@ -5,12 +5,11 @@
 <input type="file" class="file-input"/>
 
 <div zn-popup name="app-menu" class="popup-menu-items app-menu" source=".app-action" showat="bottom">
-  <!--a class="popup-menu-item" ng-click="view.onAppMenuAction('open-file', $event)"><i class="fas fa-folder-open"></i><span class="popup-menu-item-text">Open File</span></a-->
-  <!--a class="popup-menu-item" ng-click="view.onAppMenuAction('switch-ws', $event)"><i class="fas fa-random"></i><span class="popup-menu-item-text">Switch Workspace</span></a-->
-  <!--a class="popup-menu-item" ng-click="view.onAppMenuAction('agent-capture', $event)"><i class="fas fa-network-wired"></i><span class="popup-menu-item-text">Connect To Agent</span></a-->
-  <!--div class="popup-menu-item-divider">&nbsp;</div-->
-  <a class="popup-menu-item" ng-click="view.onAppMenuAction('agent-download', $event)"><i class="fas fa-cloud-download-alt"></i><span class="popup-menu-item-text">Agent Download</span></a>
-  <a class="popup-menu-item" ng-click="view.onAppMenuAction('cli-download', $event)"><i class="fas fa-cloud-download-alt"></i><span class="popup-menu-item-text">CLI Download</span></a>
+  <a class="popup-menu-item" ng-click="view.onAppMenuAction('agent-win-download', $event)"><i class="fas fa-cloud-download-alt"></i><span class="popup-menu-item-text">Windows Agent Download</span></a>
+  <a class="popup-menu-item" ng-click="view.onAppMenuAction('agent-linux-download', $event)"><i class="fas fa-cloud-download-alt"></i><span class="popup-menu-item-text">Linux Agent Download</span></a>
+  <div class="popup-menu-item-divider">&nbsp;</div>
+  <a class="popup-menu-item" ng-click="view.onAppMenuAction('cli-win-download', $event)"><i class="fas fa-cloud-download-alt"></i><span class="popup-menu-item-text">Windows CLI Download</span></a>
+  <a class="popup-menu-item" ng-click="view.onAppMenuAction('cli-linux-download', $event)"><i class="fas fa-cloud-download-alt"></i><span class="popup-menu-item-text">Linux CLI Download</span></a>
 </div>
 
 <div zn-dialog name="open-file-dialog" dialogtitle="Open File" actions="view.dialogActions.OKCANCEL" onaction="view.onOpenFileAction($event)">

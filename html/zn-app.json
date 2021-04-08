@@ -40,7 +40,10 @@
       "res": "/res",
       "images": "/res/images",
       "sw": "/sw.js",
-      "agent-package": "https://github.com/prthan/logi/releases/download/v0.3-alpha/agent.zip"
+      "agent-win-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-agent-win.zip",
+      "agent-linux-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-agent-linux.zip",
+      "cli-win-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-cli-win.zip",
+      "cli-linux-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-cli-linux.zip"
     },
     "prod":
     {
@@ -49,7 +52,10 @@
       "res": "/logi/res",
       "images": "/logi/res/images",
       "sw": "/logi/sw.js",
-      "agent-package": "https://github.com/prthan/logi/releases/download/v0.3-alpha/agent.zip"
+      "agent-win-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-agent-win.zip",
+      "agent-linux-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-agent-linux.zip",
+      "cli-win-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-cli-win.zip",
+      "cli-linux-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-cli-linux.zip"
     },
     "local":
     {
@@ -58,7 +64,10 @@
       "res": "./res",
       "images": "./res/images",
       "sw": "./sw.js",
-      "agent-package": "https://github.com/prthan/logi/releases/download/v0.3-alpha/agent.zip"
+      "agent-win-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-agent-win.zip",
+      "agent-linux-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-agent-linux.zip",
+      "cli-win-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-cli-win.zip",
+      "cli-linux-download": "https://github.com/prthan/logi/releases/download/v0.1-alpha/logi-cli-linux.zip"
     }
   }
 }

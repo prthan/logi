@@ -38,7 +38,7 @@ app.setupProcess=()=>
     process.exit();
   });
 
-  fs.writeFileSync(`${config.home}/.agent.pid`, process.pid);
+  fs.writeFileSync(`${config.home}/.agent.pid`, ""+process.pid);
 }
 
 app.getLastPid=()=>

@@ -237,6 +237,9 @@
       let popup=zn.ui.components.Popup.get("app-menu");
       popup.hide();
 
+      let url=zn.env[action];
+      if(url) window.location=url;
+
     }
 
     onToolbarAction(action, $event)

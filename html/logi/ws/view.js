@@ -180,6 +180,7 @@
       {
         view.model.connectedToAgent="Y";
         view.apply();
+        zn.ui.Toast("Connected to Agent");
       })
       client.on("log-record", (evt)=>
       {

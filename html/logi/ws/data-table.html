@@ -7,7 +7,7 @@
     <div class="fl-g1 toolbar fl">
       <a class="toolbar-item" ng-click="view.onToolbarAction('open-file', $event)" ng-if="view.model.connectedToAgent!='Y'"><i class="fas fa-folder-open"></i><span class="text">Open File</span></a>
       <a class="toolbar-item" ng-click="view.onToolbarAction('agent-connect', $event)" ng-if="view.model.connectedToAgent!='Y'"><i class="fas fa-network-wired"></i><span class="text">Connect To Agent</span></a>
-      <a class="toolbar-item" ng-click="view.onToolbarAction('agent-disconnect', $event)" ng-if="view.model.connectedToAgent=='Y'"><i class="fas fa-network-wired"></i><span class="text">Disconnect From Agent</span></a>
+      <a class="toolbar-item" ng-click="view.onToolbarAction('agent-disconnect', $event)" ng-if="view.model.connectedToAgent=='Y'"><i class="fas fa-times-circle"></i><span class="text">Disconnect From Agent</span></a>
       <a class="toolbar-item" ng-click="view.onToolbarAction('clear', $event)" ng-if="view.model.connectedToAgent!='Y'"><i class="fas fa-trash"></i><span class="text">Clear</span></a>
     </div>
     <div class="fl-g0 progress">

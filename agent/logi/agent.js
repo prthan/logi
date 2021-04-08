@@ -1,7 +1,9 @@
 const logger=require('../logger');
 const utils=require("../utils");
+const fs=require("fs");
 const http=require('http');
-const io=require('socket.io')(http);
+const io=require('socket.io');
+const https=require('https');
 //const ihubapiconnector=require("../connectors/ihub-api");
 const HANDLERS=
 [
@@ -21,15 +23,45 @@ agent["@sockets"]={};
 agent.filetailers=[];
 agent.logRecords=[];
 
+agent.createServer=()=>
+{
+  let config=global.config;
+  let options = {};
+  
+  if(config.tls)
+  {
+    options.key=fs.readFileSync(config.tls.key);
+    options.cert=fs.readFileSync(config.tls.cert);
+    agent.server=https.createServer(options);
+  }
+  else
+  {
+    agent.server=http.createServer(options);
+  }
+
+  agent.io=io(agent.server);
+  agent.io.on("connection", (socket)=>
+  {
+    var socid=socket.id;
+    agent["@sockets"][socid]=socket;
+    logger.info(`new client connection received - ${socid}`);
+  
+    HANDLERS.forEach((handler)=>
+    {
+      socket.on(handler.message, socmsg => handler.process(socket, socmsg, agent));
+    });
+  })  
+}
+
 agent.start=()=>
 {
   let config=global.config;
   let impl=async(res$, rej$)=>
   {
-    agent.server=http.createServer();
+    agent.createServer();
     agent.server.listen(config.listener.port, config.listener.address, async()=>
     {
-      io.attach(agent.server, 
+      agent.io.attach(agent.server, 
       {
         path: config.context,
         cors: 
@@ -60,18 +92,6 @@ agent.stop=()=>
 
   return new Promise(impl);
 }
-
-io.on("connection", (socket)=>
-{
-  var socid=socket.id;
-  agent["@sockets"][socid]=socket;
-  logger.info(`new client connection received - ${socid}`);
-
-  HANDLERS.forEach((handler)=>
-  {
-    socket.on(handler.message, socmsg => handler.process(socket, socmsg, agent));
-  });
-})
 
 agent.startConnectors=()=>
 {

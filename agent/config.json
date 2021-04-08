@@ -17,7 +17,7 @@
   },
 
   "context": "/logi/agent",
-  "origin": ["http://localhost:8080"],
+  "origin": ["http://localhost:8080", "https://localhost"],
 
   "file-sources":
   [
@@ -31,5 +31,11 @@
       "file": "C:/root/workspaces/ihub/temp/agent/test-wl-diag-log/logfile.txt",
       "type": "wl-diag-log"
     }
-  ]
+  ],
+
+  "tls1":
+  {
+    "key"  : "c:/root/workspaces/logi/dist/agent/tls/localhost.key",
+    "cert" : "c:/root/workspaces/logi/dist/agent/tls/localhost.crt"
+  }
 }

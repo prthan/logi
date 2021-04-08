@@ -15,7 +15,8 @@
       let client=this;
       client.socket=io(`${client.options.endpoint}`,{
         path: "/logi/agent",
-        withCredentials: true
+        withCredentials: true,
+        autoConnect: false
       });
       client.socket.on("connect", ()=>
       {
@@ -25,6 +26,7 @@
       })
       client.socket.on("/logi/announce/ack", (socmsg)=>client.onConnect(socmsg));
       client.socket.on("/logi/log-record", (socmsg)=>client.onLogRecord(socmsg));
+      client.socket.connect()
     }
 
     disconnect()
